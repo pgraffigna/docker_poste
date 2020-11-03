@@ -1,0 +1,22 @@
+version: "3.4"
+services:
+  poste:
+    image: analogic/poste.io
+    container_name: poste
+    network_mode: host
+    expose:
+      - 25
+      - 80
+      - 443
+      - 110
+      - 143
+      - 465
+      - 587
+      - 993
+      - 995
+    restart: always
+    volumes:
+      - /root/poste-data:/data
+    environment:
+      - HTTPS=ON
+      - DISABLE_CLAMAV=TRUE
